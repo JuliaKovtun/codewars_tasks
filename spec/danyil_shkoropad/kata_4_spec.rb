@@ -18,19 +18,35 @@ towns = ["Rome", "London", "Paris", "NY", "Vancouver", "Sydney", "Bangkok", "Tok
 
 
 describe "#mean" do
-    it "return the average of rainfall for the city" do
+  context "when the data about city is given" do
+    it "returns the average of rainfall for the city" do
       expect(mean("London", data)).to eql(51.199999999999996)
       expect(mean("Beijing", data)).to eql(52.416666666666664)
       expect(mean("Caracas", data)).to eql(-1)
       expect(mean("NY", data)).to eql(103.21666666666665)
     end
+  end
+
+  context "when the data about city is not given" do
+    it "returns -1" do
+      expect(mean("Caracas", data)).to eql(-1)
+    end
+  end
 end
 
 describe "#variance" do
-    it "return the variance of rainfall for the city" do
+  context "when the data about city is given" do
+    it "returns the variance of rainfall for the city" do
       expect(variance("London", data)).to eql(57.428333333333335)
       expect(variance("Beijing", data)).to eql(4808.37138888889)
       expect(variance("Tokyo", data)).to eql(2619.256666666667)
       expect(variance("Montevideo", data)).to eql(-1)
     end
+  end
+
+  context "when the data about city is not given" do
+    it "returns -1" do
+      expect(variance("Montevideo", data)).to eql(-1)
+    end
+  end
 end
